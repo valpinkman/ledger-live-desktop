@@ -2,8 +2,6 @@
 import axios from 'axios'
 import isEmpty from 'lodash/isEmpty'
 
-const { API_BASE_URL } = process.env
-
 type Input = {
   version: string,
   targetId: string | number,
@@ -12,10 +10,13 @@ type Input = {
 let error
 export default async (data: Input) => {
   try {
-    const { data: seFirmwareVersion } = await axios.post(`${API_BASE_URL}/firmware_versions_name`, {
-      se_firmware_name: data.version,
-      target_id: data.targetId,
-    })
+    const { data: seFirmwareVersion } = await axios.post(
+      `${process.env.API_BASE_URL}/firmware_versions_name`,
+      {
+        se_firmware_name: data.version,
+        target_id: data.targetId,
+      },
+    )
 
     if (!isEmpty(seFirmwareVersion)) {
       return seFirmwareVersion

@@ -1,12 +1,10 @@
 // @flow
 import axios from 'axios'
 
-const { API_BASE_URL } = process.env
-
 export default async (targetId: string | number) => {
   try {
     const { data: deviceData } = await axios.get(
-      `${API_BASE_URL}/device_versions_target_id/${targetId}`,
+      `${process.env.API_BASE_URL}/device_versions_target_id/${targetId}`,
     )
     const { data } = await axios.get('https://api.ledgerwallet.com/update/applications')
 
