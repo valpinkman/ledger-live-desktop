@@ -24,6 +24,7 @@ import path from "path";
 import electronPath from "electron";
 
 console.log("yolo test");
+console.log("yolo test");
 
 // instead of making a PR to spectron we override the way they launch chromedriver
 // chromedriver is launched automatically in the docker container
