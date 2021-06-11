@@ -13,6 +13,8 @@ import { executeCommand, unsubscribeCommand, unsubscribeAllCommands } from "./co
 import sentry from "~/sentry/node";
 // import uuid from 'uuid/v4'
 
+console.log("yolo");
+
 process.on("exit", () => {
   logger.debug("exiting process, unsubscribing all...");
   unsubscribeSetup();
